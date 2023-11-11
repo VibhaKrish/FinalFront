@@ -1,0 +1,54 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div *ngIf="ishr()">
+    <br>
+<div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <div class="search">
+                <i class="fa fa-search"></i>
+                <input type="text" class="form-control" placeholder="Search for an Employee" [(ngModel)]="searchValue" (input)="filterEmployees()">
+            </div>
+        </div>
+    </div>
+</div>  
+
+<div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div *ngIf="allEmployees">
+<div *ngIf="!loading" class="content">
+    <div class="container">
+        <div class="row row-cols-3 g-3">
+                <div *ngFor="let employee of filteredEmployees">
+                    <div class="col">
+                        <div class="text-center card-box">
+                            <div class="member-card pt-2 pb-2">
+                                <div class="thumb-lg member-thumb mx-auto"><img
+                                        src="https://bootdey.com/img/Content/avatar/avatar3.png"
+                                        class="rounded-circle img-thumbnail" alt="profile-image"></div>
+                                <div class="">
+                                    <h4>{{employee.firstName}} {{employee.lastName}}</h4>
+                                    <p class="text-muted">{{employee.role.role}} <span>| </span>{{employee.department}}</p>
+                                    <p class="text-muted">{{employee.organization}}</p>
+                                </div>
+                                <button type="button"
+                                    class="btn btn-primary mt-3 btn-rounded waves-effect w-md waves-light"
+                                    [routerLink]="['../allemployees',employee.eid]">Show more</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- container -->
+</div>
+</div>
+
+<div *ngIf="!ishr()">
+    <app-page404></app-page404>
+  </div>

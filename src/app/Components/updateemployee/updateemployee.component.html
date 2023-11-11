@@ -1,0 +1,133 @@
+<div *ngIf="isLoggedInNow()">
+    <div *ngIf="existingData">
+        <div class="container">
+            <div class="main-body">
+                <form (ngSubmit)="updateEmployeeData(formData)" #formData="ngForm" ngNativeValidate>
+                    <div class="row gutters-sm">
+                        <div class="col-md-4 mb-3">
+                            <br>
+                            <h2>Add an Employee:</h2>
+                            <br>
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="d-flex flex-column align-items-center text-center">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin"
+                                            class="rounded-circle" width="150">
+                                        <div class="mt-3" *ngIf="ishr()">
+                                            <div>
+                                                <input type="text" placeholder="Job role" name="role"
+                                                    [(ngModel)]="existingData.role.role" required>
+                                            </div>
+                                            <input type="text" placeholder="Organisation name" id="organization"
+                                                name="organization" [(ngModel)]="existingData.organization" required>
+                                            <input type="text" placeholder="Department" id="department"
+                                                name="department" [(ngModel)]="existingData.department" required>
+                                            <input type="text" placeholder="Appraisal" id="appraisal"
+                                                name="appraisal" [(ngModel)]="existingData.appraisal" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-8">
+                            <br><br><br><br>
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">First Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" placeholder="First name" id="firstName" name="firstName"
+                                                [(ngModel)]="existingData.firstName" required>
+                                        </div><br>
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Last Name</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="text" placeholder="Last name" id="lastName" name="lastName"
+                                                [(ngModel)]="existingData.lastName" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Password</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="password" placeholder="password" id="password" name="password"
+                                                [(ngModel)]="existingData.password" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Sex</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <select [(ngModel)]="existingData.sex" id="sex" name="sex">
+                                                <option value="M">Male</option>
+                                                <option value="F">Female</option>
+                                                <option value="O">Others</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Email</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="email" placeholder="Email" id="email" name="email"
+                                                [(ngModel)]="existingData.email" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">DOB</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="date" placeholder="DOB" id="dob" name="dob"
+                                                [(ngModel)]="existingData.dob" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Address</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <textarea placeholder="Address" id="address" name="address"
+                                                [(ngModel)]="existingData.address" cols="40" rows="5"></textarea>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+                                    <div class="row" *ngIf="ishr()">
+                                        <div class="col-sm-3">
+                                            <h6 class="mb-0">Date of Joining</h6>
+                                        </div>
+                                        <div class="col-sm-9 text-secondary">
+                                            <input type="date" placeholder="dateOfJoining" id="dateOfJoining"
+                                                name="dateOfJoining" [(ngModel)]="existingData.dateOfJoining" required>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <input type="submit" class="btn btn-primary" value="Update employee">
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="!isLoggedInNow()">
+    <app-page404></app-page404>
+</div>

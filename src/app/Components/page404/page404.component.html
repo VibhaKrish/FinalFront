@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #e0e0e0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .error-container {
+            text-align: center;
+        }
+
+        .error-code {
+            font-size: 100px;
+            color: #dc3545;
+        }
+
+        .error-message {
+            font-size: 24px;
+            color: #333;
+        }
+
+        .error-actions {
+            margin-top: 20px;
+        }
+
+        .error-actions a {
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 5px;
+            font-weight: 600;
+        }
+
+        .error-actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <div class="error-message">Sorry for the inconvenience!<br> </div>
+        <p><i>The page you are requesting is not found</i></p>
+        <div class="error-actions">
+            <a [routerLink]="['../home']">Go to Home</a>
+            <a [routerLink]="['../contact']">Contact Us</a>
+        </div>
+    </div>
+</body>
+</html>

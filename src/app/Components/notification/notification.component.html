@@ -1,0 +1,45 @@
+
+<br>
+<div *ngIf="ishr()">
+<div *ngIf="getPendingLeave">
+  <div *ngFor="let pendingleave of getPendingLeave">
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{pendingleave.leaveType}}</h5>
+          <p class="card-text">status : {{pendingleave.leaveStatus}} <br> <i>employee ID : {{pendingleave.employee_id}}</i></p>
+          <p class="card-text">From: {{pendingleave.leaveDate.from }} <br> <i>To : {{pendingleave.leaveDate.to}}</i></p>
+          <p class="card-text">Leave Balance: {{pendingleave.leaveBalance }} </p>
+          <a href="#" class="btn btn-success"*ngIf="ishr()" (click)="approveReject('approve',getPendingLeave[0].employee_id)">Approve</a>&nbsp;
+          <a href="#" class="btn btn-danger"*ngIf="ishr()" (click)="approveReject('reject',getPendingLeave[0].employee_id)">Reject</a>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+    </div>
+    </div>
+
+    <br>
+<div *ngIf="!ishr()">
+<div *ngIf="getAllLeave">
+<div class="row">
+    <div class="col-sm-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{getAllLeave.leaveType}}</h5>
+          <p class="card-text">status : {{getAllLeave.leaveStatus}} <br> <i>employee ID : {{getAllLeave.employee_id}}</i></p>
+          <p class="card-text">From: {{getAllLeave.leaveDate.from }} <br> <i>To : {{getAllLeave.leaveDate.to}}</i></p>
+          <p class="card-text">Leave Balance: {{getAllLeave.leaveBalance }} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    </div>
+
+    <div *ngIf="!isLoggedInNow()">
+      <app-page404></app-page404>
+    </div>
+    <br>

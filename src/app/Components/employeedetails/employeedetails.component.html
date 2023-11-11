@@ -1,0 +1,177 @@
+
+
+
+<div *ngIf="isLoggedInNow()">
+  <div *ngIf="loading" class="text-center">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+<div *ngIf="empData">
+<div  *ngIf="!loading" class="container">
+    <div class="main-body">
+          <div class="row gutters-sm">
+            <div class="col-md-4 mb-3">
+              <div class="card">
+                <div class="card-body">
+                  <div class="d-flex flex-column align-items-center text-center">
+                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <div class="mt-3">
+                      <h4>{{empData.firstName}} {{empData.lastName}}</h4>
+                      <p>{{empData.eid}}</p>
+                      <p class="text-secondary mb-1">{{empData.role.role}} <span> | </span> {{empData.department}}</p>
+                      <p class="text-muted font-size-sm">{{empData.organization}}</p>
+                      <button class="btn btn-primary" [routerLink]="['updateemployee']">update</button>&nbsp;
+                      <button class="btn btn-danger" onclick="document.getElementById('deleteemp').style.display='block'" *ngIf="ishr()">delete</button>&nbsp;
+                      <div id="deleteemp" class="modal">
+                        <span onclick="document.getElementById('deleteemp').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <form class="modal-content">
+                          <div class="container">
+                            <h1>Delete Account</h1>
+                            <p>Are you sure you want to delete this employee called {{empData.firstName}} ?</p>
+                      
+                            <div class="clearfix">
+                              <button type="button" class="cancelbtn" onclick="document.getElementById('deleteemp').style.display='none'" >Cancel</button>
+                              <button type="button" class="deletebtn" (click)="deleteEmployee(empData.eid)">Delete</button>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card mb-3">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Name</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.firstName}} {{empData.lastName}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Email</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.email}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Sex</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.sex}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">DOB</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.dob}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Address</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.address}}
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Date of Joining</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      {{empData.dateOfJoining}}
+                    </div>
+                  </div>
+                  <hr>
+                  
+                <div  *ngIf="!ishr()">
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <a class="btn btn-success "[routerLink]="['timesheet']">Timesheet</a>&nbsp;
+                      <div *ngIf="salaryData" style="display: inline-block;">
+                        <a class="btn btn-dark" (click)="generatePDF(empData.appraisal)">Salary details</a>&nbsp;
+                      </div>
+                      <a class="btn btn-primary" [routerLink]="['addleave']">Apply Leave</a>
+                      
+                    </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+
+              <div *ngIf="empData">
+              <div class="row">
+                <div class="col-sm-6 mb-3" >
+                  <div class="card h-100">  
+                    <div class="card-body">
+                      <div *ngIf="attendencePercentage">
+                      <h6 class="d-flex align-items-center mb-3">Details: </h6>
+                      <p>Attendence : {{attendencePercentage.Attendance}}%</p>
+                      </div>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 20%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div *ngIf="leaveBalance">
+                      <p>Leave Balance</p>
+                      <small>Sick leave left: {{leaveBalance.sickLeave}}</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <small>Paid leave left: {{leaveBalance.paidLeave}}</small>
+                      <div class="progress mb-3" style="height: 5px">
+                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div *ngIf="!ishr()">
+                <div class="card" style="width: 18rem;">
+                  <div class="card-body">
+                    <h5 class="card-title">Hr details :</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"> For any queries please contact </h6>
+                    <p class="card-text">Name : {{empData.hrid.firstName}} {{empData.hrid.lastName}} <br> Email: {{empData.hrid.email}}</p>
+                  </div>
+                </div>
+                </div>
+                </div>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+<div *ngIf="!isLoggedInNow()">
+  <app-page404></app-page404>
+</div>
+
+<script>
+  var modal = document.getElementById('deleteemp');
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>

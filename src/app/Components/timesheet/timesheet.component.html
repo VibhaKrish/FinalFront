@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div *ngIf="!ishr()">
+    <div class="container">
+        <div class="form-container">
+            <h2>Enter your Timesheet </h2>
+            <form [formGroup]="employeeTimesheet" (ngSubmit)="addEmployeeTimesheet()" ngNativeValidate>
+                <div class="form-group">
+                    <label for="date">Date:</label>
+                    <input type="date" class="form-control" formControlName="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="clockIn">Clock-In Time:</label>
+                    <input type="time" class="form-control" id="clockIn" formControlName="loginTime" name="clockIn" required>
+                </div>
+                <div class="form-group">
+                    <label for="clockOut">Clock-Out Time:</label>
+                    <input type="time" class="form-control" id="clockOut" formControlName="logoutTime" name="clockOut" required>
+                </div>
+                <input type="submit" class="btn btn-primary" value="submit">
+            </form>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="ishr()">
+    <app-page404></app-page404>
+</div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

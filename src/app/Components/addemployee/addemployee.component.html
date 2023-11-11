@@ -1,0 +1,118 @@
+    <div *ngIf="ishr()">
+    <div class="container">
+        <div class="main-body">
+            <form [formGroup]="employeeForm" (ngSubmit)="addEmployee()" ngNativeValidate>
+              <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                  <br>
+                  <h2>Add an Employee:</h2>
+                  <br>
+                  <div class="card">
+                    <div class="card-body">
+                      <div class="d-flex flex-column align-items-center text-center">
+                       <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                        <div class="mt-3">
+                          <div formGroupName="role">
+                         <input type="text" placeholder="Job role" formControlName="role" required>
+                         </div>
+                         <input type="text" placeholder="Organisation name" formControlName="organization"required>
+                         <input type="text" placeholder="Department" formControlName="department"required>
+                         <input type="number" placeholder="Appraisal" formControlName="appraisal"required>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               
+                <div class="col-md-8">
+                  <br><br><br><br>
+                  <div class="card mb-3">
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">First Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" placeholder="First name"formControlName="firstName" required>
+                        </div><br>
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Last Name</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="text" placeholder="Last name"formControlName="lastName" required>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Password</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="password" placeholder="password"formControlName="password" required>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Sex</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <select formControlName="sex" name="sex">
+                            <option value="M">Male</option>
+                            <option value="F">Female</option>
+                            <option value="O">Others</option>
+                          </select>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Email</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="email" placeholder="Email" formControlName="email"required>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">DOB</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                            <input type="date" placeholder="DOB" formControlName="dob" required>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Address</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <textarea placeholder="Address" formControlName="address" id="" cols="40" rows="5"></textarea>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-sm-3">
+                          <h6 class="mb-0">Date of Joining</h6>
+                        </div>
+                        <div class="col-sm-9 text-secondary">
+                          <input type="date" placeholder="dateOfJoining"formControlName="dateOfJoining" required>
+                        </div>
+                      </div>
+                      <hr>
+                      <input type="submit" class="btn btn-primary" value="Add employee" >
+                    </div>
+                  </div>
+                  
+              </div>
+    
+            </div>
+            </form>
+        </div>
+        </div>
+    </div>
+    
+        <div *ngIf="!ishr()">
+          <app-page404></app-page404>
+        </div>

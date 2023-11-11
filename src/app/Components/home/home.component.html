@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+        }
+
+        .jumbotron {
+            background-image: url('../../../assets/homeimg.jpg');
+            background-repeat: no-repeat;
+            background-size: 1200px;
+            color: #000000;
+            text-align: center;
+            padding-bottom: 30px;
+        }
+
+        .features {
+            background-color: #fff;
+            padding: 40px 0;
+        }
+
+        .feature-box {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 36px;
+            color: #3498db;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron">
+        <div style="float: left;">
+            <h1>Welcome to Employee</h1>
+            <h1> Management System</h1>
+            <p>Your go-to destination for Managing</p>
+            <p>your Leaves, adding employees and many more!</p>
+        </div>
+        <div style="padding-left: 600px; padding-top: 250px;">
+            <div *ngIf="!isLoggedInNow()" style="padding-top: 80px;">
+                <p>Login here to get it started</p>
+                <button type="button" class="btn btn-warning btn-lg" [routerLink]="['../login']">Login</button>
+            </div>
+            <div *ngIf="isLoggedInNow()">
+                <figure style="text-align: center;">
+                    <blockquote class="blockquote">
+                        <p>Hi! {{signedEname}} </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                        <div *ngIf="ishr()">
+                            <cite title="Source Title"> You are HR and has an admin access. <br> Now you can add or
+                                remove employees of your organisation</cite>
+                        </div>
+                        <div *ngIf="!ishr()">
+                            <cite title="Source Title"> You are an employee<br>You can now easily manage your leaves and
+                                check for your salary</cite>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <div style="text-align: center;">
+                    <button class="btn btn-warning" [routerLink]="['../allemployees']" *ngIf="ishr()">Employees
+                        List</button>&nbsp;
+                    <button class="btn btn-warning" [routerLink]="['../addemployee']" *ngIf="ishr()">Add
+                        Employees</button>&nbsp;
+                    <button class="btn btn-warning" [routerLink]="['../allemployees',signedEid]" *ngIf="!ishr()">My
+                        profile</button>&nbsp;
+                    <button class="btn btn-warning" [routerLink]="['../salarybyrole']" *ngIf="ishr()">Salary By
+                        Role</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 feature-box">
+                <i class="feature-icon fa fa-users" style="color: rgb(2, 2, 2);"></i>
+                <h3>Employee Management</h3>
+                <p>HR can add, remove and update the employee details</p>
+            </div>
+            <div class="col-md-4 feature-box">
+                <i class="feature-icon fa fa-list" style="color: rgb(2, 2, 2);"></i>
+                <h3>Leave Management</h3>
+                <p>Employees can apply for a leave within few steps!</p>
+            </div>
+            <div class="col-md-4 feature-box">
+                <i class="feature-icon fa fa-book" style="color: rgb(2, 2, 2);"></i>
+                <h3>Other features</h3>
+                <p>Employees can also view their salary and attendence details</p>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <br><br>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

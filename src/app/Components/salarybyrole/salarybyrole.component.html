@@ -1,0 +1,34 @@
+<br><br>
+<div *ngIf="ishr()">
+  <div *ngIf="salaryByRole">
+  <table class="table" style="margin-left: 20px;">
+    <div *ngFor="let salary of salaryByRole">
+    <thead>
+      <tr>
+        <th scope="col">Role</th>
+        <th scope="col">Basic Pay</th>
+        <th scope="col">Gratuity</th>
+        <th scope="col">PF</th>
+      </tr>
+    </thead>
+    <tbody>     
+      <tr>
+        <td>{{salary.role}}</td>
+        <td>{{salary.basicPay}}</td>
+        <td>{{salary.gratuity}}</td>
+        <td>{{salary.pf}}</td>
+          <td><button class="btn btn-danger" (click)="deleteRole(salary.role)"><i class="fa fa-trash" ></i></button>
+        </td>
+      </tr>
+    </tbody>
+    </div>
+  </table>
+</div>
+</div>
+
+<div *ngIf="!ishr()">
+  <app-page404></app-page404>
+</div>
+
+<button class="btn btn-success" style="margin-left: 20px;" [routerLink]="['addrole']">Add/update Role</button> &nbsp;
+<br><br>
