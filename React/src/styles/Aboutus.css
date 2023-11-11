@@ -1,0 +1,67 @@
+
+.about-us {
+    padding: 40px 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* Container styles */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .about-image {
+    max-width: 100%;
+    width: 100%; 
+    height: auto; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styles */
+  h1 {
+    font-size: 38px;
+    color: #0a0a0a;
+    margin-bottom: 20px;
+  }
+  
+  /* Paragraph styles */
+  p {
+    font-size: 18px;
+    color: #060606;
+    margin-bottom: 20px;
+  }
+  
+  /* Team card styles */
+  .team-card {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Team card header styles */
+  .card-header {
+    background-color: #404141;
+    color: #fff;
+    padding: 10px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    font-weight: bold;
+  }
+  
+  /* List item styles */
+  .list-group-item {
+    font-size: 16px;
+    color: #333;
+    padding: 10px;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

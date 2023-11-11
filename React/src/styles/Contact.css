@@ -1,0 +1,87 @@
+/* contact.css */
+
+/* Container styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Section styles */
+  section {
+    padding: 40px 0;
+    background-color: #f7f7f7;
+  }
+  
+  /* Row styles to center the content */
+  .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Image styles */
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styles */
+  h1 {
+    font-size: 38px;
+    color: #131212;
+    margin-bottom: 20px;
+  }
+  
+  /* Map iframe styles */
+  iframe {
+    border: 0;
+    margin-left: 150px; /* Adjust the margin as needed */
+  }
+  
+  /* Address and contact details styles */
+  p {
+    font-size: 18px;
+    color: #0c0c0c;
+    margin-bottom: 20px;
+    margin-left: 150px;
+  }
+  
+  /* Phone and website link styles */
+  i {
+    margin-right: 10px;
+    font-size: 20px;
+    color: #007bff;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Card effect for the left side */
+  .col-12.col-lg-6.col-xl-5 {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  /* Responsive layout */
+  @media (max-width: 768px) {
+    .row {
+      flex-direction: column;
+    }
+    .col-12.col-lg-6.col-xl-5,
+    .col-12.col-lg-6.col-xl-7 {
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+  }
+  
